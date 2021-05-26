@@ -1,0 +1,17 @@
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+table, td, th {
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+th {
+  padding: 1em;
+}
+td {
+  padding: 0.5em;
+}
+
+tbody tr:nth-child(odd){
+  background-color: rgb(216, 216, 216);
+}
