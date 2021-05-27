@@ -20,11 +20,11 @@
   </p>
   
   <h4>Approach 01 (Preferred)</h4>
-    Install MinGW.
+    
     <ol>
-      <li>The Download link can be found here: <a href="https://sourceforge.net/projects/mingw/files/">https://sourceforge.net/projects/mingw/files/</a>. <strong>Make sure to write down the location where you installed it!</strong></li>
+      <li>Install MinGW. The Download link can be found here: <a href="https://sourceforge.net/projects/mingw/files/">https://sourceforge.net/projects/mingw/files/</a>. <strong>Make sure to write down the location where you installed it!</strong></li>
       <li>Go to your control panel. Search up "enviromental variables". click on enviromental variables at the bottom right</li>
-      <li>Go to Path in <strong>System vairables</strong> and click it. </li>
+      <li>Go to Path in <strong>System variables</strong> and click it. </li>
       <li>Click New, and write down the location of MinGW. Also be sure to add "\bin" at the end. The final location should be something like "PATH\TO\<strong>MinGW\bin</strong>"</li>
       <li>Once done. You need to open MinGW. Go to basic setup, and select "mingw32-gcc-g++-bin" or similar. Then </li>
     </ol>
@@ -40,8 +40,20 @@
   <p>Download and install XCode from the app store. This will handle pretty much anything so far. Although, it is recommended that you use a different text
     editor.
   </p>
+  <h4>If Mac is too old</h4>
+  <ol>
+    <li>Install Homebrew: <a href="https://brew.sh/">https://brew.sh/</a></li>
+    <li>
+      Once Installed, try running "brew install gcc". This should work. If there is any issues with installation, try adding 'sudo' to the beginning
+      of your command (i.e: "sudo brew install gcc"). This will ask for your password as the 'sudo' command has the highest privilege and overrides
+      many safeguards. <strong>Be careful when using it!!</strong>
+    </li>
+  </ol>
 
   <h2>Task B: testing to make sure your compiler works</h2>
   <p>Create a new file, and use the hello world program to make sure compiling works.</p>
+  <p>Alternatively, simply typing 'g++ --version' on terminal / git bash / command prompt, and receiving information about it means that you have
+    successfully installed it.
+  </p>
 </body>
 </html>
