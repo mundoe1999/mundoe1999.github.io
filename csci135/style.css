@@ -16,8 +16,8 @@ tbody tr:nth-child(odd){
   background-color: rgb(216, 216, 216);
 }
 p {
-  width: 800px;
+  max-width: 800px;
 }
 li {
-  width: 800px;
+  max-width: 800px;
 }
