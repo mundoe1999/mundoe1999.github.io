@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Lab 01</title>
+  </head>
+<body>
+  <div class="body-container">
+
+
+  <h1>Lab 01: Introduction to Linux and C++</h1>
+
+  <h2>Compiling C++ code with g++</h2>
+  
+  <p>
+    Regarding coding style: remember that it is <strong>EXTREMELY IMPORTANT</strong> that all of your code is correctly indented. 
+    Consistency is important for keeping everything organized and readable for not only yourself, but for the future when instructors 
+    or co-workers will look at your work.
+
+  </br></br>
+  Consider the following program that asks for your current age and prints it on the screen:
+</p>
+
+  <pre>
+  #include &lt;iostream>
+  using namespace std;
+  
+  int main() {
+    cout &lt;&lt; "Enter your age: " &lt;&lt; endl;
+    int age = 0;
+    cin >> age;
+    
+    cout &lt;&lt; "Your age is " &lt;&lt; age &lt;&lt; "." &lt;&lt; endl;
+  }</pre>
+
+  <p>
+    To compile the program, be sure to save the file and name it something. For this example, name the file <strong>code.cpp</strong>. To compile,
+    the program, and call the executable <strong>myprog</strong>, type in the terminal:
+  </p>
+  <pre>g++ -o myprog code.cpp</pre>
+  <p>The "-o myprog" means that you are using the -o "output" flag and assigning the output a name.</p>
+  <p>To run the produced compiled program:</p>
+  <pre>./myprog</pre>
+  <p>
+    Alternatively, if you compile the program without giving the output file name (such as -o myprog), 
+    the executable file will be called a.out or a.exe (based on operating system), which you can execute the same way:
+  </p>
+  <pre>./a.out</pre>
+  <h2>How to submit your programs</h2>
+  <h3>Each program should be submitted through Gradescope.</h3>
+  <p>
+    Write separate programs for each part of the assignment.
+    Submit only the source code <strong>.cpp</strong> files, not the compiled executables.
+    Each program should start with a comment that contains your name and a short program description, for example:
+  </p>
+  <pre>
+/*
+Author: your name
+Course: CSCI-136
+Instructor: their name
+Assignment: title, e.g., Lab1A
+
+Here, briefly, at least in one or a few sentences
+describe what the program does.
+*/
+  </pre>
+  <h3>Task A. Find the smaller of two integers</h3>
+  <img src="https://i.imgur.com/FzG71JC.jpg" height="200px" width="400px"/>
+  <p>
+    Write a program <code>smaller.cpp</code> that asks the user to input <strong>two integer numbers</strong> and prints out the smaller of the two.
+  </p>
+  <h4>Example</h4>
+  <pre>
+$ ./smaller
+Enter the first number: 15
+Enter the second number: -24
+
+The smaller of the two is -24
+  </pre>
+
+  <h3>Task B. Find the smaller of three integers</h3>
+  <img src="https://i.imgur.com/3EJLfnP.jpg" height="200px" width="400px"/>
+  <p>
+    Write a program <code>smaller3.cpp</code> that asks the user to input <strong>three integer numbers</strong>, and prints out the smallest of the three.
+  </p>
+  <p><i>(Hint: There are many possible solutions here. One possible strategy: Given numbers x, y, and z, 
+    you can first compare x and y, take whichever is smaller and compare it with z.)</i></p>
+    <pre>
+$ ./smaller3
+Enter the first number: 23
+Enter the second number: 76
+Enter the third number: 37
+
+The smaller of the three is 23 
+    </pre>
+    <h3>Task C. A leap year or a common year?</h3>
+    <h4>Introducing the modulo operator %</h4>
+    <p>
+      In C++, operator % computes the remainder of the division of x by y. For example, 37 % 10 returns 7, because this is the remainder of 37 when divided by 10.
+    </p>
+    
+    <h4>The task</h4>
+    <p>
+      Write a program <code>leap.cpp</code> that asks the user to input an integer representing a year number (1999, 2016, etc.). If the 
+      input year is a leap year according to the modern Gregorian calendar, it should print Leap year, 
+      otherwise, print Common year.
+
+    </p>
+
+    <p>
+      In the <strong>modern Gregorian calendar</strong>, a year is a leap year if it is divisible by 4, but century years are not leap years unless they are divisible by 400. Here is the pseudocode:
+    </p>
+
+    <p>
+      <strong>if</strong> (year is not divisible by 4) <strong>then</strong> (it is a common year)
+      <strong>else if</strong> (year is not divisible by 100) <strong>then</strong> (it is a leap year)
+      <strong>else if</strong> (year is not divisible by 400) <strong>then</strong> (it is a common year)
+      <strong>else</strong> (it is a leap year)
+    </p>
+    <p>This means that 2012, 2016, 2020, and 2040 are all leap years.
+      However, the century years 1800, 1900, 2100, 2200, 2300 and 2500 are NOT.
+      Yet, 2000, 2400, 2800 are still leap years.</p>
+
+      <h4>Example 1</h4>
+      <pre>
+$ ./leap
+Enter year: 2016
+
+Leap year</pre>
+      <h4>Example 2</h4>
+
+      <pre>
+$ ./leap
+Enter year: 2017
+
+Common year</pre>
+
+      <p>
+        This means that 2012, 2016, 2020, and 2040 are all leap years.
+        However, the century years 1800, 1900, 2100, 2200, 2300 and 2500 are NOT.
+        Yet, 2000, 2400, 2800 are still leap years.
+      </p>
+
+      <h3>Task D. Number of days in a given month</h3>
+      <img src="https://i.imgur.com/tTN6shb.jpg" height="400px" width="500px"/>
+      <p>
+        Write a program <code>month.cpp</code> that asks the user to input the year and the month (1-12) 
+        and prints the number of days in that month (taking into account leap years). 
+        You may not use switch case or arrays even if you know these language constructs.
+      </p>
+
+      <h4>Example</h4>
+<pre>
+$ ./month
+Enter year: 2017
+Enter month: 5
+
+31 days
+</pre>
+
+</div>
+</body>
+</html>
+
