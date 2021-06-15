@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Lab 01</title>
+  </head>
+<body>
+
+  <div class="body-container">
+
+
+  <h1>Project 02 String Generator</h1>
+
+  <p>
+    This is a string generator for project 02. It takes in a user specified length, and given on which part 
+    of the project you are currently in, it will generate a string for that part. Each string is randomized, 
+    so feel free to take in multiple examples to test them locally. 
+  </p>
+  <div>
+    <input type="radio" id="part" name="part" value="1">Part 01<br/>
+    <input type="radio" id="part" name="part" value="2">Part 02<br/>
+    <input type="radio" id="part" name="part" value="3">Part 03<br/>
+    <input type="radio" id="part" name="part" value="4">Part 04<br/>
+    Enter number of notes for your string: 
+    <input type="number" id="notes" name="notes" min="1" max="1000"><br/><br/>
+    <button onclick="buttonPress()">Generate</button><br/><br/>
+  </div>
+
+  <p id="result"></p>
+</div>
+
+<script>
+  let letters = ['A','B','C','D','E','F','G'];
+  let duration = ['o','/','q','i'];
+
+  let generateRandom = (number) => Math.floor(Math.random()*number);
+  // type
+  // random, chord, same
+  function MakeNote(type){
+    let s = "";
+
+    // Get duration
+    let d = duration[generateRandom(4)];
+
+    // Get Note
+    let note;
+    let i = generateRandom(7);
+    if(type === "chord"){
+      note = [i, i+2, i+4];
+    }
+    else {
+      note = [i, (i + generateRandom(8))%7];
+    }
+    
+
+    // Random octave
+    let r = generateRandom(8)+1;
+    let octave = [r, r];
+
+    if(type === "same"){
+      // Check for previous
+      if(note[0] === note[1]){
+        // Should change the octave
+        while(octave[0] === octave[1]){
+          octave[1] = generateRandom(8)+1;
+        }
+      }
+    }
+    if(type === "chord"){
+      octave[0] = generateRandom(8);
+
+    }
+
+    // Generate string
+    if(type === "chord"){
+      s += d + letters[note[0]] + octave[0] + '-';
+      for(let j = 1; j < note.length; j++){
+        s += d + letters[note[j]%7] + (octave[0]+(note[j]>6 ? 1:0 )) + '-';
+      }
+    } else if(type === "same"){
+      s += d + letters[note[0]] + octave[0] + '-';
+      s += d + letters[note[1]] + octave[1] + 's';
+    } else {
+      s += d + letters[note[0]] + octave[0] + '-';
+    }
+
+    return s;
+  }
+
+  function GenerateNotes(length, part){
+    let string = "";
+
+    if(part === 1){
+      while(length != 0){
+        string += MakeNote("");
+        length--;
+      }
+    }
+    if(part === 2){
+      while(length != 0){
+        string += MakeNote("chord");
+        length--;
+      }
+    }
+
+    let type = ["", "chord", "same"]
+    if(part === 3){
+
+      while(length != 0){
+        let r = generateRandom(2);
+        string += MakeNote(type[r]);
+        length--;
+      }
+    }
+    if(part === 4){
+      //let r = generateRandom(3);
+      while(length != 0){
+        let r = generateRandom(3);
+        string += MakeNote(type[r]);
+        length--;
+      }
+    }
+
+    return string;
+  }
+
+  function buttonPress(){
+    let radios = document.getElementsByName('part');
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        let length = document.getElementById("notes").value;
+        document.getElementById("result").innerHTML = GenerateNotes(length, i+1);
+        break;
+    }
+    }
+    
+  }
+</script>
+</body>
+</html>
+
