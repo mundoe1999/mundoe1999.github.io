@@ -57,7 +57,7 @@
     
 
     // Random octave
-    let r = generateRandom(8)+1;
+    let r = (generateRandom(8)+1);
     let octave = [r, r];
 
     if(type === "same"){
@@ -70,7 +70,7 @@
       }
     }
     if(type === "chord"){
-      octave[0] = generateRandom(8);
+      octave[0] = generateRandom(7)+1;
 
     }
 
