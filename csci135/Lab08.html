@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title> LAB 12 </title>
+<title> LAB 08 </title>
 <meta name="generator" content="Jekyll v3.7.3">
 <meta property="og:title" content="Genady Maryash, Hunter College">
 <meta property="og:locale" content="en_US">
@@ -203,7 +203,7 @@ increase.</li>
 <p>A big benefit of vectors is their ability to be returned from functions. For this task, program a function called <code class="language-plaintext highlighter-rouge">vector&lt;int&gt; makeVector(int n)</code> that returns a vector of n integers that range from 0 to n-1. Call your program <code class="language-plaintext highlighter-rouge">vectors.cpp</code>. Your function <em>must</em> be implemented outside the main function and must return a vector.</p>
 
 <h2 id="task-b-a-happy-filter">Task B: A Happy Filter<a class="anchorjs-link " href="#task-b-a-happy-filter" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
-<p>Make a program called <code class="language-plaintext highlighter-rouge">optimism.cpp</code> that implements the function <code class="language-plaintext highlighter-rouge">vector&lt;int&gt;  goodVibes(const &amp; vector&lt;int&gt; v);</code> that, given a vector of integers, returns a vector with only the positive integers in the same order.</p>
+<p>Make a program called <code class="language-plaintext highlighter-rouge">optimism.cpp</code> that implements the function <code class="language-plaintext highlighter-rouge">vector&lt;int&gt;  goodVibes(vector&lt;int&gt; v);</code> that, given a vector of integers, returns a vector with only the positive integers in the same order.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vector&lt;int&gt; v{1,2,-1,3,4,-1,6};
 
 goodVibes(v); // returns [1,2,3,4,6]
@@ -218,7 +218,7 @@ gogeta(v1, v2); // v1 is now [1,2,3,4,5] and v2 is empty.
 </code></pre></div></div>
 
 <h2 id="task-d-pairwise-sum">Task D: Pairwise sum<a class="anchorjs-link " href="#task-d-pairwise-sum" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
-<p>Write a program called <code class="language-plaintext highlighter-rouge">pairwise.cpp</code> that implements the function <code class="language-plaintext highlighter-rouge">vector&lt;int&gt; sumPairWise(const vector&lt;int&gt; &amp;v1, const vector&lt;int&gt; &amp;v2)</code>
+<p>Write a program called <code class="language-plaintext highlighter-rouge">pairwise.cpp</code> that implements the function <code class="language-plaintext highlighter-rouge">vector&lt;int&gt; sumPairWise(vector&lt;int&gt; &amp;v1, vector&lt;int&gt; &amp;v2)</code>
  that returns a vector of integers whose elements are the pairwise sum 
 of the elements from the two vectors passed as arguments. If a vector 
 has a smaller size than the other, consider extra entries from the 
